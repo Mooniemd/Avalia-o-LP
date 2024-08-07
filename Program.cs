@@ -1,5 +1,5 @@
 // Questão 1: Nome e seleção de classe.
-Console.WriteLine("Por favor herói, me diga seu nome!");
+/*Console.WriteLine("Por favor herói, me diga seu nome!");
 string? nome = Console.ReadLine()!.ToLower();
 
 Console.WriteLine("Também nos diga seu sobrenome!");
@@ -14,6 +14,29 @@ if( classes.Contains(classe)){
 } else{
   Console.WriteLine("Sua classe não existe, herói. Pare de mentir!");
 }
+*/
+
+// Questão 2: Inventário e vetores.
+List<string> inventario = [];
+
+Console.WriteLine("Quantos itens você gostaria de adicionar ao inventário?");
+int qntItem = int.Parse(Console.ReadLine()!);
+
+for(int i = 0; i < qntItem; i++){
+  Console.WriteLine("Qual item você gostaria de adicionar ao inventário?");
+  string? items = Console.ReadLine()!.ToLower();
+  inventario.Add(items);
+}
+
+Console.WriteLine("Qual slot da mochila você gostaria de checar?");
+int slot = int.Parse(Console.ReadLine()!);
+
+if( slot >= 1 && slot <= qntItem){
+  Console.WriteLine($"O item {inventario[slot - 1]} está na sua mochila!");
+} else{
+  Console.WriteLine("Esse slot de item não existe na sua mochila...");
+}
+
 
 /*
                     __
