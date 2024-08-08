@@ -75,26 +75,20 @@ if( slot >= 1 && slot <= qntItem){
 string? nome = Console.ReadLine()!;
 
 Console.WriteLine("E qual arma será de sua escolha?");
-var armas = new List<Tuple<string, int>>{
-  Tuple.Create("Machado", 3),
-  Tuple.Create("Espada", 2),
-  Tuple.Create("Adaga", 1)
-};
+var armas = new List<string> { "Machado", "Espada", "Adaga"};
+var bonusA = new List<int> { 3, 2, 1 };
 
-foreach (var opt in armas){
-  Console.WriteLine($"{opt.Item1} - STR: {opt.Item2}");
+for(int i = 0; i < armas.Count; i++){
+  Console.WriteLine($"{armas[i]} - STR: {bonusA[i]}");
 }
 string? arma = Console.ReadLine()!.ToLower();
 
 Console.WriteLine("Perfeito, agora qual será sua classe?");
-var classes = new List<Tuple<string, int>>{
-  Tuple.Create("Barbaro", 30),
-  Tuple.Create("Guerreiro", 20),
-  Tuple.Create("Assassino", 10)
-};
+var classes = new List<string> { "Barbaro", "Guerreiro", "Assassino"};
+var bonusV = new List<int> { 30, 20, 10};
 
-foreach (var opt in classes){
-  Console.WriteLine($"{opt.Item1} - BHP: {opt.Item2}");
+for(int i = 0; i < classes.Count; i++){
+  Console.WriteLine($"{classes[i]} - BHP: {bonusA[i]}");
 }
 string? classe = Console.ReadLine()!.ToLower();
 
@@ -103,18 +97,18 @@ bool classeExiste = false;
 int vidaPlayer = 0;
 int danoArma = 0;
 
-foreach(var opt in armas){
-  if (opt.Item1.ToLower().Equals(arma)){
+for(int i = 0; i < armas.Count; i++){
+  if (armas[i].ToLower().Equals(arma)){
     armaExiste = true;
-    danoArma = opt.Item2;
+    danoArma = bonusA[i];
     break;
   }
 }
 
-foreach(var opt in classes){
-  if (opt.Item1.ToLower().Equals(classe)){
+for(int i = 0; i < classes.Count; i++){
+  if (classes[i].ToLower().Equals(classe)){
     classeExiste = true;
-    vidaPlayer = opt.Item2 + 100;
+    vidaPlayer = bonusV[i] + 100;
     break;
   }
 }
